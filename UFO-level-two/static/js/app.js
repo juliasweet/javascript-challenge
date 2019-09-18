@@ -2,7 +2,7 @@
 var tableData = data;
 var tbody = d3.select("tbody");
 
-// for bonus, try with arrows
+
 
 function buildTable(sightingsData) {
 	//console.log(sightingsData); *check to see if it's working
@@ -18,29 +18,34 @@ function buildTable(sightingsData) {
 buildTable(tableData);
 
 var button = d3.select("#filter-btn");
+// do I need to make all lowercase? 
 button.on("click", function() {
 	d3.event.preventDefault() //Will refresh page if you don't include w/forms
 	//Add date filter
 	let dateElement = d3.select("#datetime");
 	let inputDate = dateElement.property("value");
-	let filterData = tableData.filter(row => row.datetime==inputDate);
+	if (inputDate){
+	tableData = tableData.filter(row => row.datetime==inputDate)}; //add if filter to avoid nulls
 	// Add city filter
 	let cityElement = d3.select("#city");
 	let inputCity = cityElement.property("value");
-	let filterData = tableData.filter(row => row.city==inputCity);
+	if(inputCity){
+	tableData = tableData.filter(row => row.city==inputCity)};//add if filter to avoid nulls
 	// Add state filter
 	let stateElement = d3.select("#state");
 	let inputState = stateElement.property("value");
-	let filterData = tableData.filter(row => row.state==inputState);
+	if (inputState) {
+	tableData = tableData.filter(row => row.state==inputState)};//add if filter to avoid nulls
 	// Add country filter
 	let countryElement = d3.select("#country");
 	let inputCountry = countryElement.property("value");
-	let filterData = tableData.filter(row => row.country==inputCountry);
+	if (inputCountry){
+	tableData = tableData.filter(row => row.country == inputCountry)};//add if filter to avoid nulls
 	// Add shape filter
 	let shapeElement = d3.select("#shape");
 	let inputShape = shapeElement.property("value");
-	let filterData = tableData.filter(row => row.shape==inputShape);
-	buildTable(filterData);
-})
+	if (inputShape){
+	tableData = tableData.filter(row => row.shape==inputShape)};
+	buildTable(tableData);
+});
 
-//I think you just repeat everything here for the other filters. 
