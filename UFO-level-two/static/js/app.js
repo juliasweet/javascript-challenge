@@ -3,7 +3,6 @@ var tableData = data;
 var tbody = d3.select("tbody");
 
 
-
 function buildTable(sightingsData) {
 	//console.log(sightingsData); *check to see if it's working
 	tbody.html(""); //clear out html; will start fresh
@@ -17,35 +16,29 @@ function buildTable(sightingsData) {
 }
 buildTable(tableData);
 
-var button = d3.select("#filter-btn");
-// do I need to make all lowercase? 
-button.on("click", function() {
-	d3.event.preventDefault() //Will refresh page if you don't include w/forms
-	//Add date filter
-	let dateElement = d3.select("#datetime");
-	let inputDate = dateElement.property("value");
-	if (inputDate){
-	tableData = tableData.filter(row => row.datetime==inputDate)}; //add if filter to avoid nulls
-	// Add city filter
-	let cityElement = d3.select("#city");
-	let inputCity = cityElement.property("value");
-	if(inputCity){
-	tableData = tableData.filter(row => row.city==inputCity)};//add if filter to avoid nulls
-	// Add state filter
-	let stateElement = d3.select("#state");
-	let inputState = stateElement.property("value");
-	if (inputState) {
-	tableData = tableData.filter(row => row.state==inputState)};//add if filter to avoid nulls
-	// Add country filter
-	let countryElement = d3.select("#country");
-	let inputCountry = countryElement.property("value");
-	if (inputCountry){
-	tableData = tableData.filter(row => row.country == inputCountry)};//add if filter to avoid nulls
-	// Add shape filter
-	let shapeElement = d3.select("#shape");
-	let inputShape = shapeElement.property("value");
-	if (inputShape){
-	tableData = tableData.filter(row => row.shape==inputShape)};
-	buildTable(tableData);
-});
+// Prepare to tie function to button
+var button = d3.select("#filter-btn"); //#filter-btn is id
+button.on("click", function () { //no need to pass a value yet
+  d3.event.preventDefault(); // prevents button from reloading page if there's an issue
+  // create an object out of the filters established
+  var filtersObject = { //key-value pairs based on the filter choices
+    "datetime": d3.select("#datetime").property("value"), 
+    "city": d3.select("#city").property("value"), 
+    "state": d3.select("#state").property("value"),
+    "country": d3.select("#country").property("value"),
+    "shape": d3.select("#shape").property("value")
+  };
 
+  for (var key in filtersObject) {  
+    if (!filtersObject[key]) { // if the filter object is missing a key (i.e. no value was entered in property value)
+      delete filtersObject[key]; // delete it; don't look 
+    }
+  }
+
+  var filters = Object.entries(filtersObject);  //pass the filters object into a new variable called filters
+  const filteredTableData = tableData.filter(item => //make a new variable that contains the key-value
+    filters.every(([key, value]) => item[key] == value) //pairs from the filters object, above
+  );
+
+  buildTable(filteredTableData); //make it a table
+});

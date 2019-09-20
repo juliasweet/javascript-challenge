@@ -13,5 +13,5 @@ Many thanks to Brent Hillen for his help creating the initial table and filter f
 
 Gratitude as well to Youa Thao, who helped me when I ran into trouble with the level two challenge. She reminded me that I needed to use an if to check for multiple filters and advised me to use let instead of var.
 
-Finally, a huge bucket of kudos to the one, the only Nikhil of Stack Overflow. I had a most vexing problem with my filters, and none of the solutions that I had attempted were satisfactory. He offered two possible ways to address the problem, and I chose the one that made the most sense to me. Here is a link to my question and his answer: https://stackoverflow.com/questions/57945103/resetting-filters-before-adding-new-ones 
+Finally, a huge bucket of kudos to the one, the only Nikhil of Stack Overflow. I had a most vexing problem with my filters, and none of the solutions that I had attempted were satisfactory. He offered two possible ways to address the problem, and I chose the one that made the most sense to me. This was ultimately what I decided to do for my level two challenge. Here is a link to my question and his answer: https://stackoverflow.com/questions/57945103/resetting-filters-before-adding-new-ones 
 
