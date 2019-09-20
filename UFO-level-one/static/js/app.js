@@ -17,12 +17,14 @@ function buildTable(sightingsData) {
 }
 
 buildTable(tableData);
+
+
 var button = d3.select("#filter-btn");
+
 button.on("click", function() {
 	d3.event.preventDefault() //Will refresh page if you don't include w/forms
 	var inputElement = d3.select("#datetime");
 	var inputDate = inputElement.property("value");
 	var filterData = tableData.filter(row => row.datetime==inputDate);
 	buildTable(filterData);
-})
-
+});
