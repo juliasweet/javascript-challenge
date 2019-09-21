@@ -5,9 +5,7 @@ This repository contains three folders, each representing a new level of search 
 
 Level One allows users to filter only by date. 
 
-Level Two allows users to apply multiple progressive filters. (The second filter will add an additional layer to the data returned in the first search; to begin an entirely new search, you must reset the page.)
-
-Level Three allows users to apply multiple filters at once and resets all filters for each new search. 
+Level Two allows users to apply multiple filters at once and resets all filters for each new search. 
 
 Many thanks to Brent Hillen for his help creating the initial table and filter for the Level 1 challenge, as well as affirming my suspicion that level 2 would involve a whole lot of copy and paste. He also helped me implement my tooltip solution, which had been vexing me. (I was trying to use html and CSS and needed to account for Bootstrap.)
 
