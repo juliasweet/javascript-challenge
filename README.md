@@ -16,5 +16,4 @@ A huge bucket of kudos to the one, the only Nikhil of Stack Overflow. I had a mo
 
 I also need to offer thanks to two classmates who reminded me of the importance of addressing variations in user input. 
 Kate Mikkelson mentioned in a class activity that she had used the toLowerCase method. I thought that the solution would be perfectly applied here, as the table values were all in lowercase. I would not have thought to do it had she not mentioned it. 
-
-She also sent me the syntax! Additional thanks to Matt Garcia. He used an alert to handle incorrect date inputs. It had for some reason not occured to me that users might ignore the table and try to filter using invalid values. Matt decided to use an alert. I opted to use a tooltip with additional instructions for the more finicky input boxes. 
+Additional thanks to Matt Garcia. He used an alert to handle incorrect date inputs. It had for some reason not occured to me that users might ignore the table and try to filter using invalid values. Matt decided to use an alert. I opted to use a tooltip with additional instructions for the more finicky input boxes. 
